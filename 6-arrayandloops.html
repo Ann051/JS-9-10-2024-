@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>ToDo List Practise 1</h1>
+<input id="i1" type="text" placeholder="Todo name" onkeydown="handleKey(event)">
+<button class="b1" onclick="todo()">Add</button>
+<br/>
+<br>
+<input id="i2" type="text" placeholder="Todo name" onkeydown="handleKey(event)">
+<button class="b1" onclick="todo2()">Add</button>
+<p class="p1"></p>
+<br>
+<script>
+    let array=[]
+  function handleKey(event)
+      {
+          if(event ==='Enter')
+          {
+              todo();
+              todo2();
+          }
+      }
+
+   function todo()
+      {
+        const input = document.getElementById('i1');
+        const inputValue = input.value;
+        array.push(inputValue)
+        console.log(array)
+        input.value='';
+      }
+
+    function todo2()
+      {
+        const input = document.getElementById('i2');
+        const inputValue = input.value;
+        array.push(inputValue)
+        console.log(array)
+        input.value='';
+        document.querySelector('.p1').innerHTML=array;
+      }
+</script>
+
+</body>
+</html>

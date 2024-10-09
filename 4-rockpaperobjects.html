@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+<h1>Play Rock Paper Scissors</h1>
+<br/>
+<button onclick="play('Rock')">Rock</button>
+<button onclick="play('Paper')">Paper</button>
+<button onclick="play('Scissor')">Scissor</button>
+<button onclick="
+    sc.you = 0;
+    sc.computer = 0;
+    sc.tie = 0;
+    localStorage.removeItem('score');
+    alert('Score reset!')">Reset Score</button>
+
+<script>
+    let rps = ['Rock', 'Paper', 'Scissor'];
+
+    // Retrieve the score from localStorage if it exists
+    const savedScore = JSON.parse(localStorage.getItem('score'));
+
+    // If there is a saved score, use it. Otherwise, start fresh.
+    const sc = savedScore || {
+        computer: 0,
+        you: 0,
+        tie: 0
+    };
+
+    function play(value) {
+        let num = Math.floor(Math.random() * rps.length);
+        let c = rps[num];
+
+        console.log("Computer chose: " + c);
+
+        // Compare player choice and computer choice
+        if ((value == 'Rock' && c == 'Rock') || (value == 'Scissor' && c == 'Scissor') || (value == 'Paper' && c == 'Paper')) {
+            console.log("Draw");
+            sc.tie += 1;
+        }
+        else if ((value == 'Rock' && c == 'Paper') || (value == 'Paper' && c == 'Scissor') || (value == 'Scissor' && c == 'Rock')) {
+            console.log("Computer wins");
+            sc.computer += 1;
+        }
+        else {
+            console.log("You win");
+            sc.you += 1;
+        }
+
+        // Update the score in localStorage
+        localStorage.setItem('score', JSON.stringify(sc));
+
+        // Display the updated score
+        alert(`You: ${sc.you}, Computer: ${sc.computer}, Tie: ${sc.tie}`);
+    }
+</script>
+</body>
+</html>

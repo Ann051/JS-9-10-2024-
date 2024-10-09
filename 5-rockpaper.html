@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+<h1>Play Rock Paper Scissors</h1>
+<br/>
+<button class="class2" onclick="play('Rock')"><img src="rock-emoji.png" alt="Rock" class="class"></button>
+<button class="class2" onclick="play('Paper')"><img src="paper-emoji.png" alt="Paper" class="class"></button>
+<button class="class2" onclick="play('Scissors')"><img src="scissors-emoji.png" alt="Scissors" class="class"></button>
+<p class="js" ></p>
+<p class="js2"></p>
+<p class="js3 "></p>
+
+<button class="class3" onclick="
+    sc.you = 0;
+    sc.computer = 0;
+    sc.tie = 0;
+    localStorage.removeItem('score');
+    document.querySelector('.js').innerHTML=`You: ${sc.you}, Computer: ${sc.computer}, Tie: ${sc.tie}`;
+    document.querySelector('.js2').innerHTML=null;
+    document.querySelector('.js3').innerHTML=null;
+">Reset Score</button>
+
+
+
+<script>
+  let rps = ['Rock', 'Paper', 'Scissors'];
+
+  // Retrieve the score from localStorage if it exists
+  const savedScore = JSON.parse(localStorage.getItem('score'));
+
+  // If there is a saved score, use it. Otherwise, start fresh.
+  const sc = savedScore || {
+      computer: 0,
+      you: 0,
+      tie: 0
+  };
+
+  document.querySelector('.js').innerHTML=`You: ${sc.you}, Computer: ${sc.computer}, Tie: ${sc.tie}`
+
+
+  function play(value) {
+      let num = Math.floor(Math.random() * rps.length);
+      let c = rps[num];
+
+      console.log("Computer chose: " + c);
+
+      // Compare player choice and computer choice
+      if ((value == 'Rock' && c == 'Rock') || (value == 'Scissors' && c == 'Scissors') || (value == 'Paper' && c == 'Paper')) {
+          console.log("Draw");
+          sc.tie += 1;
+          document.querySelector('.js2').innerHTML=`It is a draw`
+          document.querySelector('.js3').innerHTML=`You <img src="${value}-emoji.png"  class="class"> <img src=" ${c}-emoji.png"  class="class">Computer`
+
+
+      }
+      else if ((value == 'Rock' && c == 'Paper') || (value == 'Paper' && c == 'Scissors') || (value == 'Scissors' && c == 'Rock')) {
+          console.log("Computer wins");
+          sc.computer += 1;
+          document.querySelector('.js2').innerHTML=`Computer wins`
+          document.querySelector('.js3').innerHTML=`You <img src="${value}-emoji.png" class="class"> <img src=" ${c}-emoji.png"  class="class">Computer`
+
+      }
+      else {
+          console.log("You win");
+          sc.you += 1;
+          document.querySelector('.js2').innerHTML=`You win`
+          document.querySelector('.js3').innerHTML=`You <img src="${value}-emoji.png"  class="class"> <img src=" ${c}-emoji.png"  class="class">Computer`
+      }
+
+      // Update the score in localStorage
+      localStorage.setItem('score', JSON.stringify(sc));
+
+       document.querySelector('.js').innerHTML=`You: ${sc.you}, Computer: ${sc.computer}, Tie: ${sc.tie}`
+
+
+  }
+</script>
+</body>
+</html>
+

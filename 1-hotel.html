@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>My Hotel</h1>
+<br/>
+<h3>Enter you order</h3>
+<button onclick="
+c=c+5;
+console.log(`Coffee is:${c}`);
+">Coffee</button>
+
+<!---->
+<button onclick="
+b=b+(3/2);
+console.log(`Bagels is:${b}`);
+">Bagels</button>
+
+<!---->
+<button onclick="
+s=s+9;
+console.log(`Soup is:${s}`);
+">Soup</button>
+
+<button onclick="
+cost=cost+(c+b+s);
+tax=cost+(cost*0.1);
+console.log(`Total cost is:${cost}`);
+console.log(`Total cost with tax is:${tax}`);
+">Submit</button>
+
+<script>
+    let name='Ann Mariam Biju';
+    let b=0;
+    let c=0;
+    let s=0;
+    let cost=0;
+    let tax=0;
+    console.log(`My name is :${name}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+body{
+background-color:black;
+color:white;
+font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+}
+
+.class{
+
+width:50px;
+height:50px;
+}
+
+.class2{
+background-color:transparent;
+border: 3px solid white;
+width:120px;
+height:120px;
+border-radius:60px;
+margin-right:10px;
+cursor:pointer;
+
+}
+
+.js{
+margin-top:50px;
+}
+
+.js2{
+margin-top:60px;
+}
+
+.js3{
+
+margin-top:50px;
+}
+
+.class3{
+font-family: 'Fira Code', Consolas, 'Courier New', monospace;/* Darker Blue */
+margin-top:50px;
+padding:10px;
+border-radius:50px;
+cursor:pointer;
+}
+
+button:hover {
+background-color: #9291A9;
+
+}

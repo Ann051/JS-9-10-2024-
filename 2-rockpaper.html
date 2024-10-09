@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+<h1>Rock Paper Scissors</h1>
+
+<button onclick="playGame('Rock')">Rock</button>
+<button onclick="playGame('Paper')">Paper</button>
+<button onclick="playGame('Scissor')">Scissor</button>
+
+<script>
+
+    let choices = ['Rock', 'Paper', 'Scissor'];
+
+
+    function playGame(playerChoice) {
+        // Get a random choice for the computer
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        let computerChoice = choices[randomIndex];
+
+        console.log(`Computer chose: ${computerChoice}`);
+        console.log(`You chose: ${playerChoice}`);
+
+        if (playerChoice === computerChoice) {
+            console.log("It's a draw!");
+        } else if (
+            (playerChoice === 'Rock' && computerChoice === 'Scissor') ||
+            (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+            (playerChoice === 'Scissor' && computerChoice === 'Paper')
+        ) {
+            console.log("You win!");
+        } else {
+            console.log("Computer wins!");
+        }
+    }
+</script>
+</body>
+</html>

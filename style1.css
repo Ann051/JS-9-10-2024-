@@ -1,0 +1,17 @@
+.b1{
+border:none;
+border-radius:15px;
+height:30px;
+width:100px;
+
+background-color:black;
+color:white;
+cursor:pointer;
+}
+
+.bt1{
+border:none;
+height:25px;
+background-color: green;
+color:white;
+}

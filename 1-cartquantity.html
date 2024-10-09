@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+CART QUANTITY:
+<br/>
+<button onclick="
+console.log(`Cart quantity :${cq}`);
+">Show quantity</button>
+<button onclick="
+cq=cq+1;
+console.log(`Cart Quantity :${cq}`);
+">Add to Cart</button>
+<button onclick="
+cq=cq+2;
+console.log(`Cart Quantity :${cq}`);
+">+2</button>
+<button onclick="
+cq=cq+3;
+console.log(`Cart Quantity :${cq}`);
+">+3</button>
+<button onclick="
+cq=0;
+console.log(`Cart Quantity :${cq}`);
+">Reset Button</button>
+<script>
+    let cq=0;
+    let plus2=0;
+    let plus3=0;
+    let r=0;
+</script>
+</body>
+</html>
